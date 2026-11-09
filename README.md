@@ -22,7 +22,7 @@ python3 -m unittest discover -s tests -t .
 | `data/facebook/latest.json` | Optional local-only list of Facebook events. Only records marked public can reach the site. |
 | `config/school_breaks.json` | Days off from school. **Update every school year.** |
 | `collector/fetch.py` | Honors robots.txt and crawl delays. |
-| `collector/parsers.py` | Reads The Events Calendar, Modern Events Calendar, and CivicPlus feeds. |
+| `collector/parsers.py` | Reads The Events Calendar, Modern Events Calendar, CivicPlus, Engaged Patrons, Localist, Squarespace, Barnes & Noble, and Gallo Center listings. |
 | `collector/filters.py` | Kid-fit keyword rules, interests, weekend and break availability, duplicates. |
 | `collector/output.py` | Google Calendar links and the `.ics` feed. |
 | `docs/` | The site. GitHub Pages serves this folder. |

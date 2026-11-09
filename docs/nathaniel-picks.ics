@@ -23,7 +23,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:1fca5bfae15c@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261114T100000
 DTEND;TZID=America/Los_Angeles:20261114T120000
 SUMMARY:Salida Bilingual Story Time
@@ -38,7 +38,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=60022
 END:VEVENT
 BEGIN:VEVENT
 UID:0faa5943e800@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261114T103000
 DTEND;TZID=America/Los_Angeles:20261114T113000
 SUMMARY:Bookmobile: Bilingual Storytime
@@ -49,7 +49,7 @@ URL:https://www.countyofmerced.com/Calendar.aspx?EID=18776
 END:VEVENT
 BEGIN:VEVENT
 UID:a60bd90cfe77@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261114T110000
 DTEND;TZID=America/Los_Angeles:20261114T140000
 SUMMARY:Family Game Day
@@ -60,7 +60,7 @@ URL:https://www.countyofmerced.com/Calendar.aspx?EID=18926
 END:VEVENT
 BEGIN:VEVENT
 UID:24dd19280183@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261114T110000
 DTEND;TZID=America/Los_Angeles:20261114T120000
 SUMMARY:Kid's Craft Time
@@ -70,8 +70,19 @@ DESCRIPTION:Details: https://www.countyofmerced.com/Calendar.aspx?EID=20485
 URL:https://www.countyofmerced.com/Calendar.aspx?EID=20485
 END:VEVENT
 BEGIN:VEVENT
+UID:b2d6c6f29a79@fun-for-nathaniel
+DTSTAMP:20261109T035240Z
+DTSTART;TZID=America/Los_Angeles:20261114T110000
+DTEND;TZID=America/Los_Angeles:20261114T130000
+SUMMARY:Storytime
+LOCATION:Barnes & Noble Monte Vista Crossing\, Turlock\, CA
+DESCRIPTION:Storytime Saturdays at 11am!\n\nDetails: https://stores.barnesa
+ ndnoble.com/store/3585\n\nListed by Barnes & Noble Turlock
+URL:https://stores.barnesandnoble.com/store/3585
+END:VEVENT
+BEGIN:VEVENT
 UID:c36cde7676fd@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261114T130000
 DTEND;TZID=America/Los_Angeles:20261114T140000
 SUMMARY:Family Lego Fun Time
@@ -82,7 +93,7 @@ URL:https://www.countyofmerced.com/Calendar.aspx?EID=19011
 END:VEVENT
 BEGIN:VEVENT
 UID:a996e42389ca@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261121T103000
 DTEND;TZID=America/Los_Angeles:20261121T113000
 SUMMARY:Bookmobile: Bilingual Storytime
@@ -93,7 +104,7 @@ URL:https://www.countyofmerced.com/Calendar.aspx?EID=18777
 END:VEVENT
 BEGIN:VEVENT
 UID:05f2b7de8442@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261121T110000
 DTEND;TZID=America/Los_Angeles:20261121T140000
 SUMMARY:Family Game Day
@@ -103,8 +114,19 @@ DESCRIPTION:Details: https://www.countyofmerced.com/Calendar.aspx?EID=18927
 URL:https://www.countyofmerced.com/Calendar.aspx?EID=18927
 END:VEVENT
 BEGIN:VEVENT
+UID:654d3a90f254@fun-for-nathaniel
+DTSTAMP:20261109T035240Z
+DTSTART;TZID=America/Los_Angeles:20261121T110000
+DTEND;TZID=America/Los_Angeles:20261121T130000
+SUMMARY:Storytime
+LOCATION:Barnes & Noble Monte Vista Crossing\, Turlock\, CA
+DESCRIPTION:Storytime Saturdays at 11am!\n\nDetails: https://stores.barnesa
+ ndnoble.com/store/3585\n\nListed by Barnes & Noble Turlock
+URL:https://stores.barnesandnoble.com/store/3585
+END:VEVENT
+BEGIN:VEVENT
 UID:ab592aa2d82c@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261121T120000
 DTEND;TZID=America/Los_Angeles:20261121T130000
 SUMMARY:Lego Play Time
@@ -115,7 +137,7 @@ URL:https://www.countyofmerced.com/Calendar.aspx?EID=18041
 END:VEVENT
 BEGIN:VEVENT
 UID:627f9a65d672@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261121T130000
 DTEND;TZID=America/Los_Angeles:20261121T140000
 SUMMARY:Family Lego Fun Time
@@ -126,7 +148,7 @@ URL:https://www.countyofmerced.com/Calendar.aspx?EID=19012
 END:VEVENT
 BEGIN:VEVENT
 UID:7e9ad8dd2ee9@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261124T100000
 DTEND;TZID=America/Los_Angeles:20261124T120000
 SUMMARY:Denair Story Time
@@ -141,7 +163,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=57633
 END:VEVENT
 BEGIN:VEVENT
 UID:83803bc85c66@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261124T103000
 DTEND;TZID=America/Los_Angeles:20261124T123000
 SUMMARY:Ceres Story Time
@@ -156,7 +178,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=59354
 END:VEVENT
 BEGIN:VEVENT
 UID:31946a1164ed@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261124T110000
 DTEND;TZID=America/Los_Angeles:20261124T130000
 SUMMARY:Patterson Story Time
@@ -171,7 +193,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=59360
 END:VEVENT
 BEGIN:VEVENT
 UID:e4a48652c680@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261124T110000
 DTEND;TZID=America/Los_Angeles:20261124T130000
 SUMMARY:Riverbank Story Time
@@ -186,7 +208,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=59168
 END:VEVENT
 BEGIN:VEVENT
 UID:f8c95c08713e@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261124T150000
 DTEND;TZID=America/Los_Angeles:20261124T170000
 SUMMARY:Waterford LEGO Play
@@ -201,7 +223,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=59888
 END:VEVENT
 BEGIN:VEVENT
 UID:1f215ab7471f@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261124T153000
 DTEND;TZID=America/Los_Angeles:20261124T173000
 SUMMARY:Riverbank LEGO Play
@@ -216,7 +238,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=59350
 END:VEVENT
 BEGIN:VEVENT
 UID:327115da9315@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261125T100000
 DTEND;TZID=America/Los_Angeles:20261125T120000
 SUMMARY:Hughson Story Time
@@ -231,7 +253,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=59823
 END:VEVENT
 BEGIN:VEVENT
 UID:6ffc10bf790e@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261125T100000
 DTEND;TZID=America/Los_Angeles:20261125T103000
 SUMMARY:Newman Story Time
@@ -246,7 +268,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=59381
 END:VEVENT
 BEGIN:VEVENT
 UID:0e3760c74113@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261125T110000
 DTEND;TZID=America/Los_Angeles:20261125T113000
 SUMMARY:Empire Bilingual Story Time
@@ -262,7 +284,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=59624
 END:VEVENT
 BEGIN:VEVENT
 UID:ae31f08ae776@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261125T153000
 DTEND;TZID=America/Los_Angeles:20261125T173000
 SUMMARY:Patterson LEGO Play
@@ -277,7 +299,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=59814
 END:VEVENT
 BEGIN:VEVENT
 UID:ff5b6077e5fd@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261127T103000
 DTEND;TZID=America/Los_Angeles:20261127T110000
 SUMMARY:Story Time at Story
@@ -289,8 +311,19 @@ DESCRIPTION:Join us for story time. We invite families and children of all
 URL:https://oakdaleevents.com/events/story-time-at-story/
 END:VEVENT
 BEGIN:VEVENT
+UID:95034e887fb4@fun-for-nathaniel
+DTSTAMP:20261109T035240Z
+DTSTART;TZID=America/Los_Angeles:20261128T110000
+DTEND;TZID=America/Los_Angeles:20261128T130000
+SUMMARY:Storytime
+LOCATION:Barnes & Noble Monte Vista Crossing\, Turlock\, CA
+DESCRIPTION:Storytime Saturdays at 11am!\n\nDetails: https://stores.barnesa
+ ndnoble.com/store/3585\n\nListed by Barnes & Noble Turlock
+URL:https://stores.barnesandnoble.com/store/3585
+END:VEVENT
+BEGIN:VEVENT
 UID:3319a3e42040@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261205T080000
 DTEND;TZID=America/Los_Angeles:20261205T113000
 SUMMARY:Breakfast with Santa
@@ -303,8 +336,19 @@ DESCRIPTION:Saturday\, December 5 at 8:00 am – 11:30 am Modesto Senior Ci
 URL:https://visitmodesto.com/events/breakfast-with-santa-3/
 END:VEVENT
 BEGIN:VEVENT
+UID:de48c5cb95ba@fun-for-nathaniel
+DTSTAMP:20261109T035240Z
+DTSTART;TZID=America/Los_Angeles:20261205T110000
+DTEND;TZID=America/Los_Angeles:20261205T130000
+SUMMARY:Storytime
+LOCATION:Barnes & Noble Monte Vista Crossing\, Turlock\, CA
+DESCRIPTION:Storytime Saturdays at 11am!\n\nDetails: https://stores.barnesa
+ ndnoble.com/store/3585\n\nListed by Barnes & Noble Turlock
+URL:https://stores.barnesandnoble.com/store/3585
+END:VEVENT
+BEGIN:VEVENT
 UID:27ef519b1979@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261213T150000
 DTEND;TZID=America/Los_Angeles:20261213T170000
 SUMMARY:The Polar Express with Santa
@@ -314,7 +358,7 @@ DESCRIPTION:A holiday screening of the movie with a special visit from Sant
 END:VEVENT
 BEGIN:VEVENT
 UID:ab44827fc67c@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261222T150000
 DTEND;TZID=America/Los_Angeles:20261222T170000
 SUMMARY:Waterford LEGO Play
@@ -329,7 +373,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=59888
 END:VEVENT
 BEGIN:VEVENT
 UID:9b0a3899b440@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261223T153000
 DTEND;TZID=America/Los_Angeles:20261223T173000
 SUMMARY:Patterson LEGO Play
@@ -344,7 +388,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=60037
 END:VEVENT
 BEGIN:VEVENT
 UID:2a0c255a73a3@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261229T150000
 DTEND;TZID=America/Los_Angeles:20261229T170000
 SUMMARY:Waterford LEGO Play
@@ -359,7 +403,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=59888
 END:VEVENT
 BEGIN:VEVENT
 UID:6127779dcb5d@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261229T153000
 DTEND;TZID=America/Los_Angeles:20261229T173000
 SUMMARY:Riverbank LEGO Play
@@ -374,7 +418,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=59350
 END:VEVENT
 BEGIN:VEVENT
 UID:87b1c3e782b3@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261229T160000
 DTEND;TZID=America/Los_Angeles:20261229T180000
 SUMMARY:Kids Coloring at the Turlock Library
@@ -389,7 +433,7 @@ URL:https://engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=57377
 END:VEVENT
 BEGIN:VEVENT
 UID:6f58c87333a5@fun-for-nathaniel
-DTSTAMP:20261109T033726Z
+DTSTAMP:20261109T035240Z
 DTSTART;TZID=America/Los_Angeles:20261231T150000
 DTEND;TZID=America/Los_Angeles:20261231T160000
 SUMMARY:Family Game Day

@@ -6,7 +6,7 @@
     "site": "https://carnegieartsturlock.org",
     "default_city": "Turlock",
     "enabled": false,
-    "note": "Site's bot check blocks scripts. Don't work around it; add events by hand or ask the site."
+    "note": "Site's bot check blocks scripts. Don't work around it; its public Facebook page is read in the weekly Facebook pass."
   },
   {
     "id": "heyturlock",
@@ -66,6 +66,37 @@
     "site_id": "2487",
     "audiences": ["V", "X"],
     "default_city": ""
+  },
+  {
+    "id": "barnes-noble-turlock",
+    "name": "Barnes & Noble Turlock",
+    "type": "barnesnoble",
+    "url": "https://stores.barnesandnoble.com/store/3585",
+    "store_id": 3585,
+    "default_city": "Turlock"
+  },
+  {
+    "id": "modesto-childrens-museum",
+    "name": "Modesto Children's Museum",
+    "type": "squarespace",
+    "url": "https://www.modestochildrensmuseum.org/upcoming",
+    "kids_only": true,
+    "default_city": "Modesto"
+  },
+  {
+    "id": "gallo-center",
+    "name": "Gallo Center for the Arts",
+    "type": "gallo",
+    "url": "https://www.galloarts.org/tickets/ListingOfEvents.aspx",
+    "default_city": "Modesto"
+  },
+  {
+    "id": "mjc",
+    "name": "Modesto Junior College",
+    "type": "localist",
+    "site": "https://calendar.mjc.edu",
+    "skip_types": ["Club Event", "College Meeting", "Workshop", "Athletic Event"],
+    "default_city": "Modesto"
   },
   {
     "id": "facebook",

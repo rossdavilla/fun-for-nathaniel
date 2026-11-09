@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T03:37:26+00:00",
+ "generated_at": "2026-11-09T03:52:40+00:00",
  "free_days": [
   {
    "name": "Veterans Day",
@@ -45,38 +45,58 @@
  "sources": [
   {
    "name": "HeyTurlock",
-   "state": "cached",
+   "state": "ok",
    "found": 4
   },
   {
    "name": "State Theatre",
-   "state": "cached",
+   "state": "ok",
    "found": 12
   },
   {
    "name": "Castle Air Museum",
-   "state": "cached",
+   "state": "ok",
    "found": 3
   },
   {
    "name": "Visit Modesto",
-   "state": "cached",
+   "state": "ok",
    "found": 60
   },
   {
    "name": "Oakdale Events",
-   "state": "cached",
+   "state": "ok",
    "found": 40
   },
   {
    "name": "Merced County Library",
-   "state": "cached",
+   "state": "ok",
    "found": 179
   },
   {
    "name": "Stanislaus County Library",
-   "state": "cached",
+   "state": "ok",
    "found": 251
+  },
+  {
+   "name": "Barnes & Noble Turlock",
+   "state": "ok",
+   "found": 5
+  },
+  {
+   "name": "Modesto Children's Museum",
+   "state": "ok",
+   "found": 7
+  },
+  {
+   "name": "Gallo Center for the Arts",
+   "state": "ok",
+   "found": 112
+  },
+  {
+   "name": "Modesto Junior College",
+   "state": "ok",
+   "found": 58
   },
   {
    "name": "Local Facebook listings",
@@ -336,6 +356,29 @@
    "available": false,
    "when_reason": "School-week",
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Family%20Game%20Night&dates=20261110T163000%2F20261110T183000&ctz=America%2FLos_Angeles&details=Bring%20the%20whole%20family%20to%20the%20library%20for%20an%20afternoon%20of%20fun%20and%20friendly%20competition%21%20Choose%20from%20a%20variety%20of%20board%20games%2C%20card%20games%2C%20and%20Nintendo%20Switch%20games%2C%20or%20discover%20a%20new%20favorite%20to%20play%20together.%20No%E2%80%A6%0A%0ADetails%3A%20https%3A%2F%2Fengagedpatrons.org%2FEventsExtended.cfm%3FSiteID%3D2487%26EventID%3D601329%26PK%3D%0A%0AListed%20by%20Stanislaus%20County%20Library&location=Salida%20Library"
+  },
+  {
+   "id": "8160271a92ce",
+   "title": "Camp MoChiMu: Veteran's Day",
+   "start": "2026-11-11T09:00:00",
+   "end": "2026-11-11T16:00:00",
+   "all_day": false,
+   "time_label": "9:00 AM – 4:00 PM",
+   "check_time": false,
+   "venue": "Modesto Children's Museum",
+   "city": "Modesto",
+   "location": "Modesto Children's Museum",
+   "cost": "",
+   "url": "https://www.modestochildrensmuseum.org/upcoming/camp-mochimu-veterans-day",
+   "source": "Modesto Children's Museum",
+   "summary": "WHEN SCHOOL’S OUT, CAMP IS IN! Join us at the Modesto Children’s Museum for Camp MoChiMu – the perfect way to fill “school’s out” time with joy, discovery, and wonder! Climb, slide, build, imagine, and explore along…",
+   "fit": "good",
+   "tags": [
+    "science"
+   ],
+   "available": true,
+   "when_reason": "Veterans Day",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Camp%20MoChiMu%3A%20Veteran%27s%20Day&dates=20261111T090000%2F20261111T160000&ctz=America%2FLos_Angeles&details=WHEN%20SCHOOL%E2%80%99S%20OUT%2C%20CAMP%20IS%20IN%21%20Join%20us%20at%20the%20Modesto%20Children%E2%80%99s%20Museum%20for%20Camp%20MoChiMu%20%E2%80%93%20the%20perfect%20way%20to%20fill%20%E2%80%9Cschool%E2%80%99s%20out%E2%80%9D%20time%20with%20joy%2C%20discovery%2C%20and%20wonder%21%20Climb%2C%20slide%2C%20build%2C%20imagine%2C%20and%20explore%20along%E2%80%A6%0A%0ADetails%3A%20https%3A%2F%2Fwww.modestochildrensmuseum.org%2Fupcoming%2Fcamp-mochimu-veterans-day%0A%0AListed%20by%20Modesto%20Children%27s%20Museum&location=Modesto%20Children%27s%20Museum"
   },
   {
    "id": "aa7bebd78507",
@@ -662,6 +705,29 @@
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Salida%20Bilingual%20Story%20Time&dates=20261114T100000%2F20261114T120000&ctz=America%2FLos_Angeles&details=Bilingual%20Story%20Time%20features%20books%2C%20stories%2C%20songs%2C%20fingerplays%2C%20rhymes%2C%20and%20more%21%20Some%20material%20is%20presented%20in%20English%2C%20while%20other%20material%20is%20presented%20in%20Spanish%2C%20allowing%20for%20more%20natural%20transitions%20and%20exposing%E2%80%A6%0A%0ADetails%3A%20https%3A%2F%2Fengagedpatrons.org%2FEventsExtended.cfm%3FSiteID%3D2487%26EventID%3D600221%26PK%3D%0A%0AListed%20by%20Stanislaus%20County%20Library&location=Salida%20Library"
   },
   {
+   "id": "0d34e7ab2e46",
+   "title": "Native American Arts and Crafts Show",
+   "start": "2026-11-14T10:00:00",
+   "end": "2026-11-14T17:00:00",
+   "all_day": false,
+   "time_label": "10:00 AM – 5:00 PM",
+   "check_time": false,
+   "venue": "Mary Stuart Rogers Center 113 - Multi Purpose Room",
+   "city": "Modesto",
+   "location": "Mary Stuart Rogers Center 113 - Multi Purpose Room, Modesto, CA",
+   "cost": "",
+   "url": "https://calendar.mjc.edu/event/native-american-arts-and-crafts-show",
+   "source": "Modesto Junior College",
+   "summary": "Rooted in Culture, Growing in Community Saturday, Nov. 14, 2026, from 10 am to 5 pm | MJC West Campus, 2201 Blue Gum Avenue This community event is hosted by the MJC SIERRA Program with free admission, and open to…",
+   "fit": "good",
+   "tags": [
+    "arts"
+   ],
+   "available": true,
+   "when_reason": "Weekend",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Native%20American%20Arts%20and%20Crafts%20Show&dates=20261114T100000%2F20261114T170000&ctz=America%2FLos_Angeles&details=Rooted%20in%20Culture%2C%20Growing%20in%20Community%20Saturday%2C%20Nov.%2014%2C%202026%2C%20from%2010%20am%20to%205%20pm%20%7C%20MJC%20West%20Campus%2C%202201%20Blue%20Gum%20Avenue%20This%20community%20event%20is%20hosted%20by%20the%20MJC%20SIERRA%20Program%20with%20free%20admission%2C%20and%20open%20to%E2%80%A6%0A%0ADetails%3A%20https%3A%2F%2Fcalendar.mjc.edu%2Fevent%2Fnative-american-arts-and-crafts-show%0A%0AListed%20by%20Modesto%20Junior%20College&location=Mary%20Stuart%20Rogers%20Center%20113%20-%20Multi%20Purpose%20Room%2C%20Modesto%2C%20CA"
+  },
+  {
    "id": "0faa5943e800",
    "title": "Bookmobile: Bilingual Storytime",
    "start": "2026-11-14T10:30:00",
@@ -752,6 +818,29 @@
    "available": true,
    "when_reason": "Weekend",
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Kind%20Cards&dates=20261114T110000%2F20261114T130000&ctz=America%2FLos_Angeles&details=Celebrate%20the%20people%20and%20things%20you%20are%20thankful%20for%21%20Grab%20a%20card%20from%20our%20collection%2C%20and%20write%20down%20your%20thoughts%20for%20yourself%20or%20someone%20special.%0A%0ADetails%3A%20https%3A%2F%2Fengagedpatrons.org%2FEventsExtended.cfm%3FSiteID%3D2487%26EventID%3D595460%26PK%3D%0A%0AListed%20by%20Stanislaus%20County%20Library&location=Oakdale%20Library"
+  },
+  {
+   "id": "b2d6c6f29a79",
+   "title": "Storytime",
+   "start": "2026-11-14T11:00:00",
+   "end": null,
+   "all_day": false,
+   "time_label": "11:00 AM",
+   "check_time": false,
+   "venue": "Barnes & Noble Monte Vista Crossing",
+   "city": "Turlock",
+   "location": "Barnes & Noble Monte Vista Crossing, Turlock, CA",
+   "cost": "",
+   "url": "https://stores.barnesandnoble.com/store/3585",
+   "source": "Barnes & Noble Turlock",
+   "summary": "Storytime Saturdays at 11am!",
+   "fit": "great",
+   "tags": [
+    "arts"
+   ],
+   "available": true,
+   "when_reason": "Weekend",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Storytime&dates=20261114T110000%2F20261114T130000&ctz=America%2FLos_Angeles&details=Storytime%20Saturdays%20at%2011am%21%0A%0ADetails%3A%20https%3A%2F%2Fstores.barnesandnoble.com%2Fstore%2F3585%0A%0AListed%20by%20Barnes%20%26%20Noble%20Turlock&location=Barnes%20%26%20Noble%20Monte%20Vista%20Crossing%2C%20Turlock%2C%20CA"
   },
   {
    "id": "9efbf31d064e",
@@ -1698,6 +1787,29 @@
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Family%20Game%20Day&dates=20261121T110000%2F20261121T140000&ctz=America%2FLos_Angeles&details=Details%3A%20https%3A%2F%2Fwww.countyofmerced.com%2FCalendar.aspx%3FEID%3D18927%0A%0AListed%20by%20Merced%20County%20Library&location=Delhi%20Library"
   },
   {
+   "id": "654d3a90f254",
+   "title": "Storytime",
+   "start": "2026-11-21T11:00:00",
+   "end": null,
+   "all_day": false,
+   "time_label": "11:00 AM",
+   "check_time": false,
+   "venue": "Barnes & Noble Monte Vista Crossing",
+   "city": "Turlock",
+   "location": "Barnes & Noble Monte Vista Crossing, Turlock, CA",
+   "cost": "",
+   "url": "https://stores.barnesandnoble.com/store/3585",
+   "source": "Barnes & Noble Turlock",
+   "summary": "Storytime Saturdays at 11am!",
+   "fit": "great",
+   "tags": [
+    "arts"
+   ],
+   "available": true,
+   "when_reason": "Weekend",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Storytime&dates=20261121T110000%2F20261121T130000&ctz=America%2FLos_Angeles&details=Storytime%20Saturdays%20at%2011am%21%0A%0ADetails%3A%20https%3A%2F%2Fstores.barnesandnoble.com%2Fstore%2F3585%0A%0AListed%20by%20Barnes%20%26%20Noble%20Turlock&location=Barnes%20%26%20Noble%20Monte%20Vista%20Crossing%2C%20Turlock%2C%20CA"
+  },
+  {
    "id": "ab592aa2d82c",
    "title": "Lego Play Time",
    "start": "2026-11-21T12:00:00",
@@ -1790,6 +1902,29 @@
    "available": true,
    "when_reason": "Weekend",
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Annual%20Tree%20Lighting%20Ceremony&dates=20261121T160000%2F20261121T200000&ctz=America%2FLos_Angeles&details=Castle%20Air%20Museum%20Tree%20Lighting%20%26%20Christmas%20Festival%20%E2%80%93%204%3A00pm%20to%208%3A00pm%20Vendor%20Opportunities%3A%20We%20are%20accepting%20non-food%20vendors%20to%20set%20up%20in%20our%20Banquet%20Room.%20The%20vendor%20fee%20is%20%2425%2C%20plus%20a%20donated%20raffle%20prize%20to%20be%E2%80%A6%0A%0ADetails%3A%20https%3A%2F%2Fcastleairmuseum.org%2Fevent%2Fannual-tree-lighting-ceremony%2F%0A%0AListed%20by%20Castle%20Air%20Museum&location=Castle%20Air%20Museum%2C%20Atwater%2C%20CA"
+  },
+  {
+   "id": "bf08a4cd06a3",
+   "title": "Fraggle Rock",
+   "start": "2026-11-22T17:00:00",
+   "end": null,
+   "all_day": false,
+   "time_label": "5:00 PM",
+   "check_time": false,
+   "venue": "Mary Stuart Rogers Theater",
+   "city": "Modesto",
+   "location": "Mary Stuart Rogers Theater, Modesto, CA",
+   "cost": "",
+   "url": "https://tickets.galloarts.org/11237/11238",
+   "source": "Gallo Center for the Arts",
+   "summary": "",
+   "fit": "good",
+   "tags": [
+    "arts"
+   ],
+   "available": true,
+   "when_reason": "Weekend",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Fraggle%20Rock&dates=20261122T170000%2F20261122T190000&ctz=America%2FLos_Angeles&details=Details%3A%20https%3A%2F%2Ftickets.galloarts.org%2F11237%2F11238%0A%0AListed%20by%20Gallo%20Center%20for%20the%20Arts&location=Mary%20Stuart%20Rogers%20Theater%2C%20Modesto%2C%20CA"
   },
   {
    "id": "9d107834dac5",
@@ -2117,6 +2252,29 @@
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Build%20It%21&dates=20261125T153000%2F20261125T173000&ctz=America%2FLos_Angeles&details=Children%20will%20have%20the%20opportunity%20to%20build%20creations%20using%20the%20library%27s%20LEGO%20blocks%2C%20DUPLO%2C%20Magna-Tiles%2C%20and%20more%21%20Building%20encourages%20motor%20skills%2C%20creativity%2C%20teamwork%2C%20patience%2C%20problem-solving%2C%20and%20most%E2%80%A6%0A%0ADetails%3A%20https%3A%2F%2Fengagedpatrons.org%2FEventsExtended.cfm%3FSiteID%3D2487%26EventID%3D598891%26PK%3D972652%0A%0AListed%20by%20Stanislaus%20County%20Library&location=Denair%20Library"
   },
   {
+   "id": "b5d39e2f37c5",
+   "title": "Camp MoChiMu: Black Friday (November 27th)",
+   "start": "2026-11-27T09:00:00",
+   "end": "2026-11-27T16:00:00",
+   "all_day": false,
+   "time_label": "9:00 AM – 4:00 PM",
+   "check_time": false,
+   "venue": "Modesto Children's Museum",
+   "city": "Modesto",
+   "location": "Modesto Children's Museum",
+   "cost": "",
+   "url": "https://www.modestochildrensmuseum.org/upcoming/camp-mochimu-veterans-day-leg35",
+   "source": "Modesto Children's Museum",
+   "summary": "WHEN SCHOOL’S OUT, CAMP IS IN! Join us at the Modesto Children’s Museum for Camp MoChiMu – the perfect way to fill “school’s out” time with joy, discovery, and wonder! Climb, slide, build, imagine, and explore along…",
+   "fit": "good",
+   "tags": [
+    "science"
+   ],
+   "available": true,
+   "when_reason": "Thanksgiving break",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Camp%20MoChiMu%3A%20Black%20Friday%20%28November%2027th%29&dates=20261127T090000%2F20261127T160000&ctz=America%2FLos_Angeles&details=WHEN%20SCHOOL%E2%80%99S%20OUT%2C%20CAMP%20IS%20IN%21%20Join%20us%20at%20the%20Modesto%20Children%E2%80%99s%20Museum%20for%20Camp%20MoChiMu%20%E2%80%93%20the%20perfect%20way%20to%20fill%20%E2%80%9Cschool%E2%80%99s%20out%E2%80%9D%20time%20with%20joy%2C%20discovery%2C%20and%20wonder%21%20Climb%2C%20slide%2C%20build%2C%20imagine%2C%20and%20explore%20along%E2%80%A6%0A%0ADetails%3A%20https%3A%2F%2Fwww.modestochildrensmuseum.org%2Fupcoming%2Fcamp-mochimu-veterans-day-leg35%0A%0AListed%20by%20Modesto%20Children%27s%20Museum&location=Modesto%20Children%27s%20Museum"
+  },
+  {
    "id": "ff5b6077e5fd",
    "title": "Story Time at Story",
    "start": "2026-11-27T10:30:00",
@@ -2233,6 +2391,29 @@
    "available": true,
    "when_reason": "Weekend",
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Merced%20County%20Fair%20Christmas%20Bazaar&dates=20261128T100000%2F20261128T150000&ctz=America%2FLos_Angeles&details=The%20fairgrounds%27%20first%20Christmas%20bazaar%2C%20with%20holiday%20shopping%20and%20festivities.%0A%0ADetails%3A%20https%3A%2F%2Fwww.facebook.com%2Fevents%2F2358754811550855%2F%0A%0AListed%20by%20Local%20Facebook%20listings&location=Merced%20County%20Fairgrounds"
+  },
+  {
+   "id": "95034e887fb4",
+   "title": "Storytime",
+   "start": "2026-11-28T11:00:00",
+   "end": null,
+   "all_day": false,
+   "time_label": "11:00 AM",
+   "check_time": false,
+   "venue": "Barnes & Noble Monte Vista Crossing",
+   "city": "Turlock",
+   "location": "Barnes & Noble Monte Vista Crossing, Turlock, CA",
+   "cost": "",
+   "url": "https://stores.barnesandnoble.com/store/3585",
+   "source": "Barnes & Noble Turlock",
+   "summary": "Storytime Saturdays at 11am!",
+   "fit": "great",
+   "tags": [
+    "arts"
+   ],
+   "available": true,
+   "when_reason": "Weekend",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Storytime&dates=20261128T110000%2F20261128T130000&ctz=America%2FLos_Angeles&details=Storytime%20Saturdays%20at%2011am%21%0A%0ADetails%3A%20https%3A%2F%2Fstores.barnesandnoble.com%2Fstore%2F3585%0A%0AListed%20by%20Barnes%20%26%20Noble%20Turlock&location=Barnes%20%26%20Noble%20Monte%20Vista%20Crossing%2C%20Turlock%2C%20CA"
   },
   {
    "id": "234ed96c26a6",
@@ -2732,6 +2913,29 @@
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=47th%20Annual%20Downtown%20Turlock%20Christmas%20Parade&dates=20261204T183000%2F20261204T203000&ctz=America%2FLos_Angeles&details=Turlock%27s%20yearly%20evening%20Christmas%20parade%20through%20downtown.%0A%0AListed%20by%20Local%20Facebook%20listings&location=East%20Main%20Street%2C%20Downtown%20Turlock"
   },
   {
+   "id": "e726acec5fb5",
+   "title": "2026-2027 Science Night at the Museum",
+   "start": "2026-12-04T19:00:00",
+   "end": "2026-12-04T22:00:00",
+   "all_day": false,
+   "time_label": "7:00 – 10:00 PM",
+   "check_time": false,
+   "venue": "Science Community Center 104 - Lobby",
+   "city": "Modesto",
+   "location": "Science Community Center 104 - Lobby, Modesto, CA",
+   "cost": "",
+   "url": "https://calendar.mjc.edu/event/2026-2027-science-night-at-the-museum-1468",
+   "source": "Modesto Junior College",
+   "summary": "",
+   "fit": "great",
+   "tags": [
+    "science"
+   ],
+   "available": false,
+   "when_reason": "School-week",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=2026-2027%20Science%20Night%20at%20the%20Museum&dates=20261204T190000%2F20261204T220000&ctz=America%2FLos_Angeles&details=Details%3A%20https%3A%2F%2Fcalendar.mjc.edu%2Fevent%2F2026-2027-science-night-at-the-museum-1468%0A%0AListed%20by%20Modesto%20Junior%20College&location=Science%20Community%20Center%20104%20-%20Lobby%2C%20Modesto%2C%20CA"
+  },
+  {
    "id": "1389daa50d50",
    "title": "10th Annual Christmas Parade",
    "start": "2026-12-05T05:00:00",
@@ -2800,6 +3004,29 @@
    "available": true,
    "when_reason": "Weekend",
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Donuts%2C%20Coffee%20and%20Cartoons%20at%20the%20State%3A%20Snow%20White%20and%20the%20Seven%20Dwarfs&dates=20261205T090000%2F20261205T110000&ctz=America%2FLos_Angeles&details=A%20Saturday%20morning%20classic%20cartoon%20screening%20at%20the%20downtown%20theatre.%0A%0AListed%20by%20Local%20Facebook%20listings&location=The%20State%20Theatre%2C%20Modesto%2C%20CA"
+  },
+  {
+   "id": "de48c5cb95ba",
+   "title": "Storytime",
+   "start": "2026-12-05T11:00:00",
+   "end": null,
+   "all_day": false,
+   "time_label": "11:00 AM",
+   "check_time": false,
+   "venue": "Barnes & Noble Monte Vista Crossing",
+   "city": "Turlock",
+   "location": "Barnes & Noble Monte Vista Crossing, Turlock, CA",
+   "cost": "",
+   "url": "https://stores.barnesandnoble.com/store/3585",
+   "source": "Barnes & Noble Turlock",
+   "summary": "Storytime Saturdays at 11am!",
+   "fit": "great",
+   "tags": [
+    "arts"
+   ],
+   "available": true,
+   "when_reason": "Weekend",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Storytime&dates=20261205T110000%2F20261205T130000&ctz=America%2FLos_Angeles&details=Storytime%20Saturdays%20at%2011am%21%0A%0ADetails%3A%20https%3A%2F%2Fstores.barnesandnoble.com%2Fstore%2F3585%0A%0AListed%20by%20Barnes%20%26%20Noble%20Turlock&location=Barnes%20%26%20Noble%20Monte%20Vista%20Crossing%2C%20Turlock%2C%20CA"
   },
   {
    "id": "01c254639f38",
@@ -3238,6 +3465,29 @@
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Light%20Up%20The%20Night&dates=20261211T180000%2F20261211T210000&ctz=America%2FLos_Angeles&details=A%20walk-through%20Christmas%20wonderland%2C%20indoors%20and%20out%2C%20with%20characters%2C%20music%2C%20giveaways%2C%20and%20plenty%20of%20lights.%0A%0ADetails%3A%20https%3A%2F%2Fwww.facebook.com%2Fevents%2F2633603730435945%2F%0A%0AListed%20by%20Local%20Facebook%20listings&location=One%20Church%20Ripon"
   },
   {
+   "id": "27b1ba390317",
+   "title": "CWB - The Nutcracker",
+   "start": "2026-12-11T19:00:00",
+   "end": null,
+   "all_day": false,
+   "time_label": "7:00 PM",
+   "check_time": false,
+   "venue": "Mary Stuart Rogers Theater",
+   "city": "Modesto",
+   "location": "Mary Stuart Rogers Theater, Modesto, CA",
+   "cost": "",
+   "url": "https://tickets.galloarts.org/11194/11201",
+   "source": "Gallo Center for the Arts",
+   "summary": "",
+   "fit": "good",
+   "tags": [
+    "arts"
+   ],
+   "available": false,
+   "when_reason": "School-week",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=CWB%20-%20The%20Nutcracker&dates=20261211T190000%2F20261211T210000&ctz=America%2FLos_Angeles&details=Details%3A%20https%3A%2F%2Ftickets.galloarts.org%2F11194%2F11201%0A%0AListed%20by%20Gallo%20Center%20for%20the%20Arts&location=Mary%20Stuart%20Rogers%20Theater%2C%20Modesto%2C%20CA"
+  },
+  {
    "id": "9270dd3fa196",
    "title": "Read to a Dog at the Ceres Library",
    "start": "2026-12-12T12:00:00",
@@ -3262,6 +3512,29 @@
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Read%20to%20a%20Dog%20at%20the%20Ceres%20Library&dates=20261212T120000%2F20261212T130000&ctz=America%2FLos_Angeles&details=Independent%20readers%20up%20to%20age%2012%20are%20invited%20to%20practice%20their%20reading%20skills%20with%20the%20special%20Read%20to%20a%20Dog%20program%20at%20the%20Ceres%20Library.%20This%20program%20is%20designed%20to%20help%20children%20gain%20confidence%20in%20their%20reading%E2%80%A6%0A%0ADetails%3A%20https%3A%2F%2Fengagedpatrons.org%2FEventsExtended.cfm%3FSiteID%3D2487%26EventID%3D573669%26PK%3D931651%0A%0AListed%20by%20Stanislaus%20County%20Library&location=Ceres%20Library"
   },
   {
+   "id": "ffd16fba735b",
+   "title": "CWB - The Nutcracker",
+   "start": "2026-12-12T14:00:00",
+   "end": null,
+   "all_day": false,
+   "time_label": "2:00 PM",
+   "check_time": false,
+   "venue": "Mary Stuart Rogers Theater",
+   "city": "Modesto",
+   "location": "Mary Stuart Rogers Theater, Modesto, CA",
+   "cost": "",
+   "url": "https://tickets.galloarts.org/11194/11203",
+   "source": "Gallo Center for the Arts",
+   "summary": "",
+   "fit": "good",
+   "tags": [
+    "arts"
+   ],
+   "available": true,
+   "when_reason": "Weekend",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=CWB%20-%20The%20Nutcracker&dates=20261212T140000%2F20261212T160000&ctz=America%2FLos_Angeles&details=Details%3A%20https%3A%2F%2Ftickets.galloarts.org%2F11194%2F11203%0A%0AListed%20by%20Gallo%20Center%20for%20the%20Arts&location=Mary%20Stuart%20Rogers%20Theater%2C%20Modesto%2C%20CA"
+  },
+  {
    "id": "3de4ce07abe4",
    "title": "Posada Navideña Mercado",
    "start": "2026-12-12T17:00:00",
@@ -3281,6 +3554,29 @@
    "available": true,
    "when_reason": "Weekend",
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Posada%20Navide%C3%B1a%20Mercado&dates=20261212T170000%2F20261212T190000&ctz=America%2FLos_Angeles&details=A%20traditional%20Christmas%20posada%20and%20evening%20market%20in%20downtown%20Modesto.%0A%0ADetails%3A%20https%3A%2F%2Fwww.facebook.com%2Fevents%2F2557734838075482%2F%0A%0AListed%20by%20Local%20Facebook%20listings&location=Amor%20Y%20Cultura%20Mercado%2C%20Modesto%2C%20CA"
+  },
+  {
+   "id": "8d5014ddfa05",
+   "title": "CWB - The Nutcracker",
+   "start": "2026-12-13T14:00:00",
+   "end": null,
+   "all_day": false,
+   "time_label": "2:00 PM",
+   "check_time": false,
+   "venue": "Mary Stuart Rogers Theater",
+   "city": "Modesto",
+   "location": "Mary Stuart Rogers Theater, Modesto, CA",
+   "cost": "",
+   "url": "https://tickets.galloarts.org/11194/11204",
+   "source": "Gallo Center for the Arts",
+   "summary": "",
+   "fit": "good",
+   "tags": [
+    "arts"
+   ],
+   "available": true,
+   "when_reason": "Weekend",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=CWB%20-%20The%20Nutcracker&dates=20261213T140000%2F20261213T160000&ctz=America%2FLos_Angeles&details=Details%3A%20https%3A%2F%2Ftickets.galloarts.org%2F11194%2F11204%0A%0AListed%20by%20Gallo%20Center%20for%20the%20Arts&location=Mary%20Stuart%20Rogers%20Theater%2C%20Modesto%2C%20CA"
   },
   {
    "id": "27ef519b1979",
@@ -3654,6 +3950,29 @@
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cookie%20Decorating&dates=20261217T160000%2F20261217T180000&ctz=America%2FLos_Angeles&details=Join%20us%20for%20a%20festive%20day%20of%20cookie%20decorating%21%20Sugar%20cookies%2C%20frosting%2C%20and%20sprinkles%20will%20be%20provided.%0A%0ADetails%3A%20https%3A%2F%2Fengagedpatrons.org%2FEventsExtended.cfm%3FSiteID%3D2487%26EventID%3D600228%26PK%3D%0A%0AListed%20by%20Stanislaus%20County%20Library&location=Ceres%20Library"
   },
   {
+   "id": "f859208745b8",
+   "title": "CWB - Nutcracker in Jazz!",
+   "start": "2026-12-18T19:00:00",
+   "end": null,
+   "all_day": false,
+   "time_label": "7:00 PM",
+   "check_time": false,
+   "venue": "Mary Stuart Rogers Theater",
+   "city": "Modesto",
+   "location": "Mary Stuart Rogers Theater, Modesto, CA",
+   "cost": "",
+   "url": "https://tickets.galloarts.org/11195/11208",
+   "source": "Gallo Center for the Arts",
+   "summary": "",
+   "fit": "good",
+   "tags": [
+    "arts"
+   ],
+   "available": false,
+   "when_reason": "School-week",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=CWB%20-%20Nutcracker%20in%20Jazz%21&dates=20261218T190000%2F20261218T210000&ctz=America%2FLos_Angeles&details=Details%3A%20https%3A%2F%2Ftickets.galloarts.org%2F11195%2F11208%0A%0AListed%20by%20Gallo%20Center%20for%20the%20Arts&location=Mary%20Stuart%20Rogers%20Theater%2C%20Modesto%2C%20CA"
+  },
+  {
    "id": "b972ecea16d8",
    "title": "The Nutcracker: Abridged",
    "start": "2026-12-19T14:00:00",
@@ -3675,6 +3994,52 @@
    "available": true,
    "when_reason": "Weekend",
    "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=The%20Nutcracker%3A%20Abridged&dates=20261219T140000%2F20261219T180000&ctz=America%2FLos_Angeles&details=The%20Nutcracker%3A%20Abridged%20Presented%20by%20Alegr%C3%ADa%20Performing%20Arts%20Academy%20Step%20into%20a%20world%20of%20holiday%20magic%20as%20Alegr%C3%ADa%20Performing%20Arts%20Academy%20proudly%20presents%20The%20Nutcracker%3A%20Abridged%21%20Join%20us%20for%20a%20celebration%20of%20dance%E2%80%A6%0A%0ADetails%3A%20https%3A%2F%2Fheyturlock.com%2Fevent%2Fthe-nutcracker-abridged%2F2026-12-19%2F%0A%0AListed%20by%20HeyTurlock&location=Denair%20Gaslight%20Theater"
+  },
+  {
+   "id": "b3908db38421",
+   "title": "CWB - The Nutcracker",
+   "start": "2026-12-19T14:00:00",
+   "end": null,
+   "all_day": false,
+   "time_label": "2:00 PM",
+   "check_time": false,
+   "venue": "Mary Stuart Rogers Theater",
+   "city": "Modesto",
+   "location": "Mary Stuart Rogers Theater, Modesto, CA",
+   "cost": "",
+   "url": "https://tickets.galloarts.org/11194/11206",
+   "source": "Gallo Center for the Arts",
+   "summary": "",
+   "fit": "good",
+   "tags": [
+    "arts"
+   ],
+   "available": true,
+   "when_reason": "Weekend",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=CWB%20-%20The%20Nutcracker&dates=20261219T140000%2F20261219T160000&ctz=America%2FLos_Angeles&details=Details%3A%20https%3A%2F%2Ftickets.galloarts.org%2F11194%2F11206%0A%0AListed%20by%20Gallo%20Center%20for%20the%20Arts&location=Mary%20Stuart%20Rogers%20Theater%2C%20Modesto%2C%20CA"
+  },
+  {
+   "id": "270b7daec58e",
+   "title": "CWB - The Nutcracker",
+   "start": "2026-12-20T14:00:00",
+   "end": null,
+   "all_day": false,
+   "time_label": "2:00 PM",
+   "check_time": false,
+   "venue": "Mary Stuart Rogers Theater",
+   "city": "Modesto",
+   "location": "Mary Stuart Rogers Theater, Modesto, CA",
+   "cost": "",
+   "url": "https://tickets.galloarts.org/11194/11207",
+   "source": "Gallo Center for the Arts",
+   "summary": "",
+   "fit": "good",
+   "tags": [
+    "arts"
+   ],
+   "available": true,
+   "when_reason": "Weekend",
+   "google_url": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=CWB%20-%20The%20Nutcracker&dates=20261220T140000%2F20261220T160000&ctz=America%2FLos_Angeles&details=Details%3A%20https%3A%2F%2Ftickets.galloarts.org%2F11194%2F11207%0A%0AListed%20by%20Gallo%20Center%20for%20the%20Arts&location=Mary%20Stuart%20Rogers%20Theater%2C%20Modesto%2C%20CA"
   },
   {
    "id": "3a6db498805c",

@@ -8,8 +8,9 @@ from urllib.parse import parse_qs, urlsplit
 from collector import filters, output
 from collector.fetch import Fetcher, RobotsBlocked
 from collector.parsers import (
-    CHILDRENS_PROGRAM, Event, parse_civicplus, parse_clock_range, parse_engagedpatrons,
-    parse_facebook, parse_mec, parse_tribe, resolve_city, stated_ages,
+    CHILDRENS_PROGRAM, Event, parse_barnesnoble, parse_civicplus, parse_clock_range,
+    parse_engagedpatrons, parse_facebook, parse_gallo, parse_localist, parse_mec,
+    parse_squarespace, parse_tribe, resolve_city, stated_ages,
 )
 
 SOURCE = {"id": "s", "name": "Source", "default_city": "Turlock"}
@@ -149,6 +150,60 @@ class ParserTests(unittest.TestCase):
             "title": "x", "start_date": "2026-12-04 19:00:00", "url": "javascript:alert(1)",
         }]})
         self.assertEqual(parse_tribe(payload, SOURCE)[0].url, "")
+
+    def test_barnesnoble_reads_embedded_calendar_for_this_store_only(self):
+        day = json.dumps([
+            {"eventId": "a", "name": "Storytime", "date": "2026-11-14", "time": "11:00 AM", "storeId": 3585,
+             "storeAddress1": "Monte Vista Crossing", "storeAddress2": "2693 Countryside Drive",
+             "descriptionText": 'Say "hi"', "isStoryTime": True},
+            {"eventId": "b", "name": "Elsewhere", "date": "2026-11-14", "time": "1:00 PM", "storeId": 1},
+        ])
+        escaped = day.replace("\\", "\\\\").replace('"', '\\"')
+        page = f'x\\"dayEvents\\":{escaped}y\\"dayEvents\\":{escaped}z'
+        source = {**SOURCE, "url": "https://example.org/store", "store_id": 3585}
+        found = parse_barnesnoble(page, source)
+        self.assertEqual(len(found), 1)
+        self.assertEqual(found[0].start, datetime(2026, 11, 14, 11, 0))
+        self.assertEqual(found[0].summary, 'Say "hi"')
+        self.assertEqual(found[0].categories, [CHILDRENS_PROGRAM])
+
+    def test_squarespace_reads_upcoming_events_only(self):
+        page = """
+        <article class="eventlist-event eventlist-event--past"><a href="/old" class="eventlist-title-link">Old</a></article>
+        <article class="eventlist-event eventlist-event--upcoming">
+        <h1><a href="/upcoming/camp" class="eventlist-title-link">Camp &amp; Play</a></h1>
+        <time class="event-date" datetime="2026-11-27">Friday</time>
+        <time class="event-time-localized-start" datetime="2026-11-27">9:00 AM</time>
+        <time class="event-time-localized-end" datetime="2026-11-27">4:00 PM</time>
+        <li class="eventlist-meta-address event-meta-item">The Museum <a href="http://maps">(map)</a></li>
+        </article>"""
+        source = {**SOURCE, "url": "https://example.org/upcoming", "kids_only": True}
+        found = parse_squarespace(page, source)
+        self.assertEqual([item.title for item in found], ["Camp & Play"])
+        self.assertEqual(found[0].end, datetime(2026, 11, 27, 16, 0))
+        self.assertEqual(found[0].venue, "The Museum")
+        self.assertEqual(found[0].url, "https://example.org/upcoming/camp")
+        self.assertEqual(found[0].categories, [CHILDRENS_PROGRAM])
+
+    def test_gallo_reads_table_rows(self):
+        page = ('<tr><td class="text-nowrap">11/22/2026 5:00 PM</td><td><a href="https://t.example/1">'
+                '<b>Fraggle Rock</b></a></td><td class="hidden-xs">Rogers Theater</td></tr>')
+        found = parse_gallo(page, SOURCE)[0]
+        self.assertEqual((found.title, found.venue), ("Fraggle Rock", "Rogers Theater"))
+        self.assertEqual(found.start, datetime(2026, 11, 22, 17, 0))
+        self.assertEqual(found.url, "https://t.example/1")
+
+    def test_localist_skips_listed_event_types(self):
+        def record(title, kind):
+            return {"event": {
+                "title": title, "filters": {"event_types": [{"name": kind}]},
+                "event_instances": [{"event_instance": {"start": "2026-12-04T19:00:00-08:00", "end": None}}],
+                "localist_url": "https://example.org/e",
+            }}
+        payload = json.dumps({"events": [record("Science Night", "Special Event"), record("Child Club", "Club Event")]})
+        found = parse_localist(payload, {**SOURCE, "skip_types": ["Club Event"]})
+        self.assertEqual([item.title for item in found], ["Science Night"])
+        self.assertEqual(found[0].start, datetime(2026, 12, 4, 19, 0))
 
     def test_city_after_street_name_wins(self):
         self.assertEqual(resolve_city("100 N Turlock Rd, Merced, CA", "Modesto"), "Merced")

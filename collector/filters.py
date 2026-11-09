@@ -17,7 +17,7 @@ def _pattern(*terms):
 
 
 NOT_AN_EVENT = _pattern(r"bookmobile(?!:)", r"library system closed", r"libraries closed",
-                        r"closure", r"cancell?ed")
+                        r"museum closed", r"closure", r"cancell?ed")
 NOT_FOR_KIDS = _pattern(
     r"adults?", r"seniors?", r"teens?", r"t\(w\)een\b.*", r"tweens?", r"bunco", r"happy hour", r"wine", r"beers?", r"brew\w*",
     r"cocktails?", r"bar crawl", r"21\+", r"18\+", r"lectures?", r"book club", r"jazz night",

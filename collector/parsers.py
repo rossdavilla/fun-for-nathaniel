@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timedelta
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import urljoin, urlsplit
 
 MEC_NS = "{http://webnus.net/rss/mec/}"
 CIVIC_NS = "{https://www.countyofmerced.com/Calendar.aspx}"
@@ -267,6 +267,128 @@ def parse_engagedpatrons(payload, source, year, month):
     return events
 
 
+def parse_barnesnoble(payload, source):
+    """Read the store calendar that a Barnes & Noble store page embeds as escaped JSON."""
+    page = payload.decode("utf-8", "replace") if isinstance(payload, bytes) else payload
+    page = page.replace('\\"', '"').replace("\\\\", "\\")
+    decoder, seen, events = json.JSONDecoder(), set(), []
+    for match in re.finditer(r'"dayEvents":\[', page):
+        try:
+            day_events, _ = decoder.raw_decode(page, match.end() - 1)
+        except ValueError:
+            continue
+        for item in day_events:
+            key = (item.get("eventId"), item.get("date"))
+            clock = parse_clock(item.get("time"))
+            if key in seen or str(item.get("storeId")) != str(source["store_id"]) or not clock:
+                continue
+            seen.add(key)
+            description = plain_text(item.get("descriptionText"))
+            events.append(Event(
+                source_id=source["id"],
+                source=source["name"],
+                title=plain_text(item.get("name")),
+                start=at_time(datetime.fromisoformat(item["date"]), clock),
+                venue=f"Barnes & Noble {plain_text(item.get('storeAddress1'))}".strip(),
+                address=plain_text(item.get("storeAddress2")),
+                city=source["default_city"],
+                url=safe_url(source["url"]),
+                summary=shorten(description),
+                categories=[CHILDRENS_PROGRAM] if item.get("isStoryTime") else [],
+                ages=stated_ages(description),
+            ))
+    return events
+
+
+def _html_field(pattern, block):
+    match = re.search(pattern, block, re.S)
+    return plain_text(match[1]) if match else ""
+
+
+def parse_squarespace(payload, source):
+    """Read the upcoming events on a Squarespace event list page."""
+    page = payload.decode("utf-8", "replace") if isinstance(payload, bytes) else payload
+    events = []
+    for block in re.findall(r'<article class="eventlist-event eventlist-event--upcoming.*?</article>', page, re.S):
+        days = re.findall(r'<time class="event-date" datetime="([\d-]+)"', block)
+        if not days:
+            continue
+        first, last = datetime.fromisoformat(days[0]), datetime.fromisoformat(days[-1])
+        start_clock = parse_clock(_html_field(r'event-time-localized-start"[^>]*>(.*?)</time>', block))
+        end_clock = parse_clock(_html_field(r'event-time-localized-end"[^>]*>(.*?)</time>', block))
+        link = re.search(r'<a href="([^"]+)" class="eventlist-title-link"', block)
+        venue = _html_field(r'eventlist-meta-address[^>]*>(.*?)<a ', block)
+        description = _html_field(r'<div class="eventlist-description">(.*?)</div>\s*</div>\s*</div>', block)
+        events.append(Event(
+            source_id=source["id"],
+            source=source["name"],
+            title=_html_field(r'class="eventlist-title-link">(.*?)</a>', block),
+            start=at_time(first, start_clock) if start_clock else first,
+            end=at_time(last, end_clock) if start_clock and end_clock else last if not start_clock else None,
+            all_day=start_clock is None,
+            venue=venue,
+            city=resolve_city(venue, source["default_city"]),
+            url=safe_url(urljoin(source["url"], html.unescape(link[1]))) if link else "",
+            summary=shorten(description),
+            categories=[CHILDRENS_PROGRAM] if source.get("kids_only") else [],
+            ages=stated_ages(description),
+        ))
+    return events
+
+
+GALLO_ROW = re.compile(
+    r'<td class="text-nowrap">\s*(\d\d/\d\d/\d{4} \d{1,2}:\d\d [AP]M)\s*</td>\s*'
+    r'<td>\s*(?:<a href="([^"]*)"[^>]*>)?(.*?)(?:</a>)?\s*</td>\s*'
+    r'<td[^>]*>(.*?)</td>', re.S)
+
+
+def parse_gallo(payload, source):
+    """Read the Gallo Center's table of upcoming performances."""
+    page = payload.decode("utf-8", "replace") if isinstance(payload, bytes) else payload
+    return [
+        Event(
+            source_id=source["id"],
+            source=source["name"],
+            title=plain_text(title),
+            start=datetime.strptime(when, "%m/%d/%Y %I:%M %p"),
+            venue=plain_text(venue),
+            city=source["default_city"],
+            url=safe_url(html.unescape(link or "")),
+        )
+        for when, link, title, venue in GALLO_ROW.findall(page)
+    ]
+
+
+def parse_localist(payload, source):
+    """Read one page of a Localist calendar's events API."""
+    events = []
+    for wrapper in json.loads(payload).get("events", []):
+        item = wrapper["event"]
+        types = [entry["name"] for entry in item.get("filters", {}).get("event_types", [])]
+        instances = item.get("event_instances") or []
+        if set(types) & set(source.get("skip_types", [])) or not instances:
+            continue
+        instance = instances[0]["event_instance"]
+        description = plain_text(item.get("description_text"))
+        events.append(Event(
+            source_id=source["id"],
+            source=source["name"],
+            title=plain_text(item.get("title")),
+            start=datetime.fromisoformat(instance["start"]).replace(tzinfo=None),
+            end=datetime.fromisoformat(instance["end"]).replace(tzinfo=None) if instance.get("end") else None,
+            all_day=bool(instance.get("all_day")),
+            venue=plain_text(item.get("location_name")),
+            address=plain_text(item.get("address")),
+            city=resolve_city(item.get("address"), source["default_city"]),
+            cost=plain_text(item.get("ticket_cost")),
+            url=safe_url(item.get("localist_url")),
+            summary=shorten(description),
+            categories=types,
+            ages=stated_ages(description),
+        ))
+    return events
+
+
 def public_facebook_link(value):
     """Keep organizer sites and Facebook Event pages, but never a link into a group."""
     url = safe_url(value)
@@ -321,7 +443,25 @@ def collect_source(source, fetcher, today, horizon_days):
         return parse_civicplus(fetcher.get(source["feed"]), source)
     if source["type"] == "engagedpatrons":
         return _collect_engagedpatrons(source, fetcher, today, last_day)
+    if source["type"] == "barnesnoble":
+        return parse_barnesnoble(fetcher.get(source["url"]), source)
+    if source["type"] == "squarespace":
+        return parse_squarespace(fetcher.get(source["url"]), source)
+    if source["type"] == "gallo":
+        return parse_gallo(fetcher.get(source["url"]), source)
+    if source["type"] == "localist":
+        return _collect_localist(source, fetcher, horizon_days)
     raise ValueError(f"Unknown source type: {source['type']}")
+
+
+def _collect_localist(source, fetcher, horizon_days):
+    events = []
+    for page in range(1, MAX_FEED_PAGES + 1):
+        payload = fetcher.get(f"{source['site']}/api/2/events?days={horizon_days}&pp=100&page={page}")
+        events.extend(parse_localist(payload, source))
+        if page >= int(json.loads(payload).get("page", {}).get("total") or 1):
+            break
+    return events
 
 
 def _collect_tribe(source, fetcher, today, last_day):
