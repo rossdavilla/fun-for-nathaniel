@@ -19,7 +19,7 @@ python3 -m unittest discover -s tests -t .
 | Piece | Purpose |
 |---|---|
 | `config/sources.json` | Sources to collect. Set `"enabled": false` to pause one. |
-| `config/school_breaks.json` | Turlock Unified days off. **Update every school year.** |
+| `config/school_breaks.json` | Days off from school. **Update every school year.** |
 | `collector/fetch.py` | Honors robots.txt and crawl delays. |
 | `collector/parsers.py` | Reads The Events Calendar, Modern Events Calendar, and CivicPlus feeds. |
 | `collector/filters.py` | Kid-fit keyword rules, interests, weekend and break availability, duplicates. |

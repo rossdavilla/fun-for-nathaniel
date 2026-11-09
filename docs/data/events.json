@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T00:51:14+00:00",
+ "generated_at": "2026-11-09T00:56:28+00:00",
  "free_days": [
   {
    "name": "Veterans Day",
@@ -17,13 +17,18 @@
    "end": "2027-01-01"
   },
   {
+   "name": "Staff development day",
+   "start": "2027-01-04",
+   "end": "2027-01-04"
+  },
+  {
    "name": "MLK Day",
    "start": "2027-01-18",
    "end": "2027-01-18"
   },
   {
    "name": "Presidents' weekend",
-   "start": "2027-02-11",
+   "start": "2027-02-12",
    "end": "2027-02-15"
   },
   {
@@ -33,39 +38,39 @@
   },
   {
    "name": "Summer break",
-   "start": "2027-05-29",
+   "start": "2027-05-28",
    "end": "2027-08-01"
   }
  ],
  "sources": [
   {
    "name": "HeyTurlock",
-   "state": "ok",
+   "state": "cached",
    "found": 4
   },
   {
    "name": "State Theatre",
-   "state": "ok",
+   "state": "cached",
    "found": 12
   },
   {
    "name": "Castle Air Museum",
-   "state": "ok",
+   "state": "cached",
    "found": 3
   },
   {
    "name": "Visit Modesto",
-   "state": "ok",
+   "state": "cached",
    "found": 60
   },
   {
    "name": "Oakdale Events",
-   "state": "ok",
+   "state": "cached",
    "found": 40
   },
   {
    "name": "Merced County Library",
-   "state": "ok",
+   "state": "cached",
    "found": 179
   }
  ],
