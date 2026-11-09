@@ -8,17 +8,20 @@ import urllib.error
 import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timedelta
+from pathlib import Path
+from urllib.parse import urlsplit
 
 MEC_NS = "{http://webnus.net/rss/mec/}"
 CIVIC_NS = "{https://www.countyofmerced.com/Calendar.aspx}"
 MAX_FEED_PAGES = 6
 SUMMARY_LIMIT = 220
+CHILDRENS_PROGRAM = "Children's program"
 
 IN_AREA = [
     "Turlock", "Keyes", "Denair", "Hilmar", "Delhi", "Hughson", "Ceres", "Modesto",
     "Merced", "Atwater", "Livingston", "Winton", "Riverbank", "Oakdale", "Salida",
     "Empire", "Waterford", "Patterson", "Gustine", "Ballico", "Cressey", "Stevinson",
-    "Planada",
+    "Planada", "Newman", "Grayson", "Ripon",
 ]
 OUT_OF_AREA = ["Los Banos", "Dos Palos", "Le Grand", "Santa Nella", "Stockton", "Manteca"]
 
@@ -38,6 +41,7 @@ class Event:
     url: str = ""
     summary: str = ""
     categories: list = field(default_factory=list)
+    ages: list | None = None
 
     def to_json(self):
         data = asdict(self)
@@ -97,6 +101,25 @@ def at_time(day, clock):
     return day.replace(hour=clock[0], minute=clock[1], second=0, microsecond=0)
 
 
+AGE_PATTERNS = [
+    (re.compile(r"ages? (\d+)\s*(?:-|–|to)\s*(\d+)", re.I), lambda m: [int(m[1]), int(m[2])]),
+    (re.compile(r"ages? (\d+)\s*(?:\+|and (?:up|older))", re.I), lambda m: [int(m[1]), 99]),
+    (re.compile(r"ages? (\d+)\s*and (?:under|younger)", re.I), lambda m: [0, int(m[1])]),
+    (re.compile(r"up to age (\d+)", re.I), lambda m: [0, int(m[1])]),
+    (re.compile(r"(\d+)(?:st|nd|rd|th) grade and up", re.I), lambda m: [int(m[1]) + 5, 99]),
+]
+
+
+def stated_ages(description):
+    """Return the first [youngest, oldest] age range a description states, if any."""
+    if re.search(r"all ages", description or "", re.I):
+        return None
+    found = [(match.start(), convert(match))
+             for pattern, convert in AGE_PATTERNS
+             if (match := pattern.search(description or ""))]
+    return min(found)[1] if found else None
+
+
 def parse_tribe(payload, source):
     """Parse a response from The Events Calendar's WordPress REST API."""
     events = []
@@ -117,6 +140,7 @@ def parse_tribe(payload, source):
             url=safe_url(item.get("url")),
             summary=shorten(plain_text(item.get("description"))),
             categories=categories,
+            ages=stated_ages(plain_text(item.get("description"))),
         ))
     return events
 
@@ -147,6 +171,7 @@ def parse_mec(payload, source):
             url=safe_url(item.findtext("link")),
             summary=shorten(plain_text(item.findtext("description"))),
             categories=[plain_text(c.text) for c in item.findall(f"{MEC_NS}category")],
+            ages=stated_ages(plain_text(item.findtext("description"))),
         ))
     return events
 
@@ -185,8 +210,108 @@ def parse_civicplus(payload, source):
     return events
 
 
+EP_DATE_TIME = re.compile(r"^\w+,\s*\w+\.?\s+(\d{1,2}),?\s*(.*)$")
+EP_CLOCK = re.compile(r"(\d{1,2})(?::(\d{2}))?\s*([ap]m)?", re.I)
+
+
+def parse_clock_range(text):
+    """Read "3 pm", "3:30-4:30 pm", or "3, 3:30, or 4 pm" as (start, end) clocks."""
+    found = EP_CLOCK.findall(text or "")
+    meridiems = [item[2] for item in found if item[2]]
+    if not found or not meridiems:
+        return None, None
+
+    def clock(item, meridiem):
+        return (int(item[0]) % 12 + (12 if meridiem.lower() == "pm" else 0), int(item[1] or 0))
+
+    last = meridiems[-1]
+    end = clock(found[-1], found[-1][2] or last) if "-" in text and len(found) > 1 else None
+    start = clock(found[0], found[0][2] or last)
+    if end and start > end and not found[0][2]:  # "11-1 pm" starts in the morning.
+        start = clock(found[0], "am")
+    return start, end
+
+
+def _ep_field(pattern, block):
+    match = re.search(pattern, block, re.S)
+    return plain_text(match[1]) if match else ""
+
+
+def parse_engagedpatrons(payload, source, year, month):
+    """Parse one month of an Engaged Patrons library calendar page."""
+    page = payload.decode("utf-8", "replace") if isinstance(payload, bytes) else payload
+    events = []
+    for block in page.split('<div class="LECalendarCellEvent"')[1:]:
+        when = EP_DATE_TIME.match(_ep_field(r'LEPopUpDateTime">(.*?)</span>', block))
+        if not when:
+            continue
+        start_clock, end_clock = parse_clock_range(when[2])
+        day = datetime(year, month, int(when[1]))
+        branch = _ep_field(r'LEPopUpDateTime"><br />(.*?)<br />', block)
+        description = _ep_field(r'LEPopUpDescription[^>]*>(.*?)</div>', block).removesuffix("... read more")
+        link = re.search(r'href="(//engagedpatrons\.org/EventsExtended\.cfm[^"]*)"', block)
+        events.append(Event(
+            source_id=source["id"],
+            source=source["name"],
+            title=_ep_field(r'LEPopUpTitle[^>]*>(.*?)</div>', block),
+            start=at_time(day, start_clock) if start_clock else day,
+            end=at_time(day, end_clock) if start_clock and end_clock else day if not start_clock else None,
+            all_day=start_clock is None,
+            venue=branch,
+            city=resolve_city(branch, source["default_city"]),
+            url=safe_url("https:" + html.unescape(link[1])) if link else "",
+            summary=shorten(description.strip()),
+            categories=[CHILDRENS_PROGRAM],
+            ages=stated_ages(description),
+        ))
+    return events
+
+
+def public_facebook_link(value):
+    """Keep organizer sites and Facebook Event pages, but never a link into a group."""
+    url = safe_url(value)
+    parts = urlsplit(url)
+    if parts.hostname and parts.hostname.endswith("facebook.com") and not parts.path.startswith("/events/"):
+        return ""
+    return url
+
+
+def parse_facebook(payload, source):
+    """Read events saved by the Facebook skill. Anything not marked public is dropped."""
+    events = []
+    for item in json.loads(payload).get("events", []):
+        if item.get("visibility") != "public" or not item.get("title"):
+            continue
+        try:
+            start = datetime.fromisoformat(item["start"])
+            end = datetime.fromisoformat(item["end"]) if item.get("end") else None
+        except (KeyError, TypeError, ValueError):
+            continue
+        location = " ".join(filter(None, [item.get("venue"), item.get("address"), item.get("city")]))
+        events.append(Event(
+            source_id=source["id"],
+            source=source["name"],
+            title=plain_text(item["title"]),
+            start=start.replace(tzinfo=None),
+            end=end.replace(tzinfo=None) if end else None,
+            all_day=bool(item.get("all_day")),
+            venue=plain_text(item.get("venue")),
+            address=plain_text(item.get("address")),
+            city=resolve_city(location, source["default_city"]),
+            cost=plain_text(item.get("cost")),
+            url=public_facebook_link(item.get("url")),
+            summary=shorten(plain_text(item.get("summary"))),
+            categories=[CHILDRENS_PROGRAM],
+            ages=stated_ages(plain_text(item.get("summary"))),
+        ))
+    return events
+
+
 def collect_source(source, fetcher, today, horizon_days):
     """Download every page of a source that falls inside the look-ahead window."""
+    if source["type"] == "facebook":
+        path = Path(__file__).resolve().parent.parent / source["file"]
+        return parse_facebook(path.read_text(), source) if path.exists() else []
     last_day = today + timedelta(days=horizon_days)
     if source["type"] == "tribe":
         return _collect_tribe(source, fetcher, today, last_day)
@@ -194,6 +319,8 @@ def collect_source(source, fetcher, today, horizon_days):
         return _collect_mec(source, fetcher, last_day)
     if source["type"] == "civicplus":
         return parse_civicplus(fetcher.get(source["feed"]), source)
+    if source["type"] == "engagedpatrons":
+        return _collect_engagedpatrons(source, fetcher, today, last_day)
     raise ValueError(f"Unknown source type: {source['type']}")
 
 
@@ -206,6 +333,18 @@ def _collect_tribe(source, fetcher, today, last_day):
         events.extend(parse_tribe(payload, source))
         if page >= int(json.loads(payload).get("total_pages") or 1):
             break
+    return events
+
+
+def _collect_engagedpatrons(source, fetcher, today, last_day):
+    events = []
+    year, month = today.year, today.month
+    while (year, month) <= (last_day.year, last_day.month):
+        for audience in source["audiences"]:
+            url = (f"https://engagedpatrons.org/EventsCalendar.cfm?SiteID={source['site_id']}"
+                   f"&thisMonth={month}&thisYear={year}&BranchID=&keyword=&audience={audience}")
+            events.extend(parse_engagedpatrons(fetcher.get(url), source, year, month))
+        year, month = (year + 1, 1) if month == 12 else (year, month + 1)
     return events
 
 

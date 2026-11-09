@@ -19,6 +19,7 @@ python3 -m unittest discover -s tests -t .
 | Piece | Purpose |
 |---|---|
 | `config/sources.json` | Sources to collect. Set `"enabled": false` to pause one. |
+| `data/facebook/latest.json` | Optional local-only list of Facebook events. Only records marked public can reach the site. |
 | `config/school_breaks.json` | Days off from school. **Update every school year.** |
 | `collector/fetch.py` | Honors robots.txt and crawl delays. |
 | `collector/parsers.py` | Reads The Events Calendar, Modern Events Calendar, and CivicPlus feeds. |

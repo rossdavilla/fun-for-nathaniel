@@ -58,5 +58,20 @@
     "type": "civicplus",
     "feed": "https://www.countyofmerced.com/RSSFeed.aspx?ModID=58&CID=Library-24",
     "default_city": "Merced"
+  },
+  {
+    "id": "stanislaus-library",
+    "name": "Stanislaus County Library",
+    "type": "engagedpatrons",
+    "site_id": "2487",
+    "audiences": ["V", "X"],
+    "default_city": ""
+  },
+  {
+    "id": "facebook",
+    "name": "Local Facebook listings",
+    "type": "facebook",
+    "file": "data/facebook/latest.json",
+    "default_city": ""
   }
 ]

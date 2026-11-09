@@ -7,19 +7,25 @@ import re
 from datetime import date, timedelta
 from difflib import SequenceMatcher
 
+from .parsers import CHILDRENS_PROGRAM
+
+KID_AGE = 5  # Nathaniel's age: update every birthday.
+
 
 def _pattern(*terms):
     return re.compile(r"\b(?:" + "|".join(terms) + r")\b", re.I)
 
 
-NOT_AN_EVENT = _pattern(r"bookmobile(?!:)", r"library system closed", r"closure", r"cancell?ed")
+NOT_AN_EVENT = _pattern(r"bookmobile(?!:)", r"library system closed", r"libraries closed",
+                        r"closure", r"cancell?ed")
 NOT_FOR_KIDS = _pattern(
-    r"adults?", r"seniors?", r"teens?", r"bunco", r"happy hour", r"wine", r"beers?", r"brew\w*",
+    r"adults?", r"seniors?", r"teens?", r"t\(w\)een\b.*", r"tweens?", r"bunco", r"happy hour", r"wine", r"beers?", r"brew\w*",
     r"cocktails?", r"bar crawl", r"21\+", r"18\+", r"lectures?", r"book club", r"jazz night",
     r"line dancing", r"gala", r"luncheon", r"members dinner", r"meetings?", r"board of",
     r"council", r"optometry", r"tax", r"medicare", r"genealogy", r"veterans? day",
 )
-UNDER_FIVE_ONLY = _pattern(r"bab(?:y|ies)", r"infants?", r"toddlers?", r"tiny tales", r"preschool\w*")
+UNDER_FIVE_ONLY = _pattern(r"bab(?:y|ies)", r"infants?", r"toddlers?", r"tiny tales", r"preschool\w*",
+                           r"wiggle worms", r"wee move")
 
 BEST_FIT = _pattern(
     r"kids?", r"child(?:ren|ren's)?", r"famil(?:y|ies)", r"all ages", r"story ?times?", r"santa",
@@ -36,16 +42,19 @@ GOOD_FIT = _pattern(
 INTERESTS = {
     "animals": _pattern(r"zoo", r"farms?", r"petting", r"animals?", r"wildlife", r"pon(?:y|ies)",
                         r"dogs?", r"birds?", r"nature walk", r"winnie the pooh"),
-    "science": _pattern(r"science", r"stem", r"museum", r"aviation", r"air ?planes?", r"planes?",
+    "science": _pattern(r"science", r"stem", r"steam", r"dino\w*", r"build it", r"museum", r"aviation", r"air ?planes?", r"planes?",
                         r"trains?", r"trucks?", r"robots?", r"lego", r"open cockpit",
                         r"polar express", r"air museum"),
     "arts": _pattern(r"story ?times?", r"puppets?", r"crafts?", r"paint\w*", r"art", r"arts",
                      r"music\w*", r"concerts?", r"nutcracker", r"theat(?:er|re)", r"ballet",
                      r"sing\w*", r"read\w*", r"books?", r"bookmark", r"rainbow magic",
-                     r"cat in the hat", r"windsock", r"coloring", r"movie"),
+                     r"cat in the hat", r"windsock", r"coloring", r"movie", r"kind cards",
+                     r"cardmaking", r"collages?", r"journals?", r"ornaments?", r"slime",
+                     r"crafternoon", r"snow globes?", r"sticker\w*"),
     "festival": _pattern(r"parades?", r"santa", r"christmas", r"holiday", r"festivals?",
                          r"tree lighting", r"carnival", r"fair", r"markets?", r"skat\w+",
-                         r"bounce", r"egg hunt", r"trunk or treat", r"games?", r"play\w*"),
+                         r"bounce", r"egg hunt", r"trunk or treat", r"games?", r"play\w*",
+                         r"chess"),
 }
 
 LATEST_BREAK_DAY_HOUR = 17
@@ -57,9 +66,11 @@ def fit_for_kid(event):
     title = event.title
     if NOT_AN_EVENT.search(title) or NOT_FOR_KIDS.search(title) or UNDER_FIVE_ONLY.search(title):
         return None
+    if event.ages and not event.ages[0] <= KID_AGE <= event.ages[1]:
+        return None
     if BEST_FIT.search(title):
         return "great"
-    if GOOD_FIT.search(title):
+    if GOOD_FIT.search(title) or CHILDRENS_PROGRAM in event.categories:
         return "good"
     return None
 

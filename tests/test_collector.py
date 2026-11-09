@@ -7,7 +7,10 @@ from urllib.parse import parse_qs, urlsplit
 
 from collector import filters, output
 from collector.fetch import Fetcher, RobotsBlocked
-from collector.parsers import Event, parse_civicplus, parse_mec, parse_tribe, resolve_city
+from collector.parsers import (
+    CHILDRENS_PROGRAM, Event, parse_civicplus, parse_clock_range, parse_engagedpatrons,
+    parse_facebook, parse_mec, parse_tribe, resolve_city, stated_ages,
+)
 
 SOURCE = {"id": "s", "name": "Source", "default_city": "Turlock"}
 FREE_DAYS = [
@@ -70,6 +73,77 @@ class ParserTests(unittest.TestCase):
         feed = CIVIC_FEED.replace(b"10:30 AM-12:00 PM</title>", "10:30–11:30 AM</title>".encode())
         self.assertEqual(parse_civicplus(feed, SOURCE)[0].venue, "Los Banos Library")
 
+    def test_engagedpatrons_event(self):
+        page = (
+            '<div class="LECalendarCellEvent" style="x"><a class="LEToolTipLink" '
+            'href="//engagedpatrons.org/EventsExtended.cfm?SiteID=2487&EventID=9&PK=">x</a>'
+            '<div class="tooltiptext"><div class="LEPopUpTitle" style="y">Children&rsquo;s LEGO&reg; Play</div>'
+            '<span class="LEPopUpDateTime"> Saturday, Nov. 14, 3:30-4:30 pm</span>'
+            '<span class="LEPopUpDateTime"><br />Turlock Library <br />'
+            '<div class="LEPopUpDescription" align="left">For ages 8 and up; ages 10 ... read more</div>'
+        )
+        parsed = parse_engagedpatrons(page, {**SOURCE, "default_city": ""}, 2026, 11)[0]
+        self.assertEqual(parsed.title, "Children’s LEGO Play")
+        self.assertEqual((parsed.start, parsed.end),
+                         (datetime(2026, 11, 14, 15, 30), datetime(2026, 11, 14, 16, 30)))
+        self.assertEqual((parsed.venue, parsed.city), ("Turlock Library", "Turlock"))
+        self.assertEqual(parsed.ages, [8, 99])
+        self.assertTrue(parsed.url.startswith("https://engagedpatrons.org/EventsExtended.cfm"))
+
+    def test_clock_ranges(self):
+        cases = {
+            "3 pm": ((15, 0), None),
+            "11:30 am - 12 pm": ((11, 30), (12, 0)),
+            "11-1 pm": ((11, 0), (13, 0)),
+            "3, 3:30, or 4 pm": ((15, 0), None),
+            "": (None, None),
+        }
+        for text, expected in cases.items():
+            with self.subTest(text):
+                self.assertEqual(parse_clock_range(text), expected)
+
+    def test_stated_ages(self):
+        cases = {
+            "This program is designed for ages 9-18.": [9, 18],
+            "for children ages 3 to 5.": [3, 5],
+            "For ages 8 and up; content suitable for ages 10 and up": [8, 99],
+            "toys for ages 5 and under.": [0, 5],
+            "Best for 3rd grade and up.": [8, 99],
+            "Under 5, but all ages are welcome!": None,
+            "Pancakes!": None,
+        }
+        for text, expected in cases.items():
+            with self.subTest(text):
+                self.assertEqual(stated_ages(text), expected)
+
+    def facebook_events(self, **changes):
+        item = {
+            "title": "Family Farm Day", "start": "2026-11-21T10:00:00", "end": "2026-11-21T14:00:00",
+            "venue": "Example Farm", "city": "Hilmar", "summary": "Hayrides.",
+            "url": "https://www.facebook.com/events/123/", "visibility": "public",
+        }
+        item.update(changes)
+        return parse_facebook(json.dumps({"events": [item]}), {**SOURCE, "default_city": ""})
+
+    def test_facebook_reads_public_event(self):
+        parsed = self.facebook_events()[0]
+        self.assertEqual((parsed.title, parsed.city), ("Family Farm Day", "Hilmar"))
+        self.assertEqual(parsed.url, "https://www.facebook.com/events/123/")
+        self.assertEqual(parsed.categories, [CHILDRENS_PROGRAM])
+
+    def test_facebook_never_passes_private_or_unmarked_events(self):
+        self.assertEqual(self.facebook_events(visibility="private"), [])
+        self.assertEqual(self.facebook_events(visibility=None), [])
+
+    def test_facebook_strips_links_into_groups_and_profiles(self):
+        for url in ("https://www.facebook.com/groups/123/posts/456/", "https://m.facebook.com/someone"):
+            self.assertEqual(self.facebook_events(url=url)[0].url, "")
+        self.assertEqual(self.facebook_events(url="https://farm.example/x")[0].url, "https://farm.example/x")
+
+    def test_facebook_skips_records_with_bad_dates(self):
+        self.assertEqual(self.facebook_events(start="this Saturday"), [])
+        self.assertEqual(self.facebook_events(start=None), [])
+
     def test_rejects_non_web_links(self):
         payload = json.dumps({"events": [{
             "title": "x", "start_date": "2026-12-04 19:00:00", "url": "javascript:alert(1)",
@@ -92,6 +166,15 @@ class FilterTests(unittest.TestCase):
         for title, expected in cases.items():
             with self.subTest(title):
                 self.assertEqual(filters.fit_for_kid(event(title)), expected)
+
+    def test_childrens_programs_respect_age_limits(self):
+        program = {"categories": [CHILDRENS_PROGRAM]}
+        self.assertEqual(filters.fit_for_kid(event("Dinosaur Dig", **program)), "good")
+        self.assertIsNone(filters.fit_for_kid(event("Coding", ages=[9, 18], **program)))
+        self.assertEqual(filters.fit_for_kid(event("Messy Art", ages=[3, 5], **program)), "good")
+        for title in ("Turlock Wiggle Worms", "T(w)een Tuesday: Cork Boards",
+                      "Friends of the Ceres Library Meeting", "Veterans Day - All Libraries Closed"):
+            self.assertIsNone(filters.fit_for_kid(event(title, **program)), title)
 
     def test_availability(self):
         cases = [

@@ -37,7 +37,7 @@ def gather(sources, today, offline):
     events, statuses = [], []
     for source in sources:
         status = {"name": source["name"], "state": "ok", "found": 0}
-        if offline:
+        if offline and "file" not in source:
             found = read_cache(source)
             status["state"] = "cached"
         else:
@@ -48,6 +48,8 @@ def gather(sources, today, offline):
                 print(f"  ! {source['name']}: {error}", file=sys.stderr)
                 found = read_cache(source)
                 status["state"] = "failed"
+        if "file" in source and not found:
+            continue  # An unused local file shouldn't appear as a source on the site.
         status["found"] = len(found)
         statuses.append(status)
         events.extend(found)
