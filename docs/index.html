@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fun for Nathaniel</title>
+  <meta name="description" content="Kid-friendly things to do around Turlock, California on weekends and school breaks.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23e4572e'/><circle cx='16' cy='16' r='6' fill='%23ffd166'/></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="masthead">
+    <h1>Fun for Nathaniel</h1>
+    <p>Things to do around Turlock on weekends and school breaks.</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel calendar-panel" aria-label="Calendar">
+      <div class="month-bar">
+        <button id="prev" class="icon-button" aria-label="Previous month">‹</button>
+        <h2 id="month-title" aria-live="polite"></h2>
+        <button id="next" class="icon-button" aria-label="Next month">›</button>
+      </div>
+      <div class="weekdays" aria-hidden="true">
+        <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+      </div>
+      <div id="grid" class="grid"></div>
+      <p class="legend"><span class="swatch"></span> Weekend or no school</p>
+
+      <div class="filters">
+        <div id="interests" class="chips" role="group" aria-label="Filter by interest"></div>
+        <label class="field">
+          <span>Town</span>
+          <select id="city"></select>
+        </label>
+        <label class="toggle">
+          <input id="show-all" type="checkbox">
+          <span>Include school-week events</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="agenda" aria-label="Events">
+      <div class="agenda-head">
+        <h2 id="agenda-title"></h2>
+        <button id="clear-day" class="link-button" hidden>Show whole month</button>
+      </div>
+      <div id="agenda" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="subscribe">
+      <h2>Keep it in your calendar</h2>
+      <p>Subscribe once and the top picks stay in Google Calendar. Google can take up to a day to show changes.</p>
+      <div class="actions">
+        <a id="subscribe" class="button" target="_blank" rel="noopener">Subscribe in Google Calendar</a>
+        <button id="copy-feed" class="button ghost">Copy feed link</button>
+      </div>
+    </div>
+    <details class="sources">
+      <summary id="updated"></summary>
+      <ul id="source-list"></ul>
+      <p>Details come from each organizer's website. Please confirm before you head out.</p>
+    </details>
+  </footer>
+
+  <noscript><p class="notice">This calendar needs JavaScript to display events.</p></noscript>
+  <script src="app.js"></script>
+</body>
+</html>

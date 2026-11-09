@@ -1,0 +1,139 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Fun for Nathaniel//Events//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Fun for Nathaniel
+X-WR-TIMEZONE:America/Los_Angeles
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:0faa5943e800@fun-for-nathaniel
+DTSTAMP:20261109T005114Z
+DTSTART;TZID=America/Los_Angeles:20261114T103000
+DTEND;TZID=America/Los_Angeles:20261114T113000
+SUMMARY:Bookmobile: Bilingual Storytime
+LOCATION:Winton Community Park
+DESCRIPTION:Details: https://www.countyofmerced.com/Calendar.aspx?EID=18776
+ \n\nListed by Merced County Library
+URL:https://www.countyofmerced.com/Calendar.aspx?EID=18776
+END:VEVENT
+BEGIN:VEVENT
+UID:a60bd90cfe77@fun-for-nathaniel
+DTSTAMP:20261109T005114Z
+DTSTART;TZID=America/Los_Angeles:20261114T110000
+DTEND;TZID=America/Los_Angeles:20261114T140000
+SUMMARY:Family Game Day
+LOCATION:Delhi Library
+DESCRIPTION:Details: https://www.countyofmerced.com/Calendar.aspx?EID=18926
+ \n\nListed by Merced County Library
+URL:https://www.countyofmerced.com/Calendar.aspx?EID=18926
+END:VEVENT
+BEGIN:VEVENT
+UID:24dd19280183@fun-for-nathaniel
+DTSTAMP:20261109T005114Z
+DTSTART;TZID=America/Los_Angeles:20261114T110000
+DTEND;TZID=America/Los_Angeles:20261114T120000
+SUMMARY:Kid's Craft Time
+LOCATION:Hilmar Library
+DESCRIPTION:Details: https://www.countyofmerced.com/Calendar.aspx?EID=20485
+ \n\nListed by Merced County Library
+URL:https://www.countyofmerced.com/Calendar.aspx?EID=20485
+END:VEVENT
+BEGIN:VEVENT
+UID:c36cde7676fd@fun-for-nathaniel
+DTSTAMP:20261109T005114Z
+DTSTART;TZID=America/Los_Angeles:20261114T130000
+DTEND;TZID=America/Los_Angeles:20261114T140000
+SUMMARY:Family Lego Fun Time
+LOCATION:Gustine Library
+DESCRIPTION:Details: https://www.countyofmerced.com/Calendar.aspx?EID=19011
+ \n\nListed by Merced County Library
+URL:https://www.countyofmerced.com/Calendar.aspx?EID=19011
+END:VEVENT
+BEGIN:VEVENT
+UID:a996e42389ca@fun-for-nathaniel
+DTSTAMP:20261109T005114Z
+DTSTART;TZID=America/Los_Angeles:20261121T103000
+DTEND;TZID=America/Los_Angeles:20261121T113000
+SUMMARY:Bookmobile: Bilingual Storytime
+LOCATION:Winton Community Park
+DESCRIPTION:Details: https://www.countyofmerced.com/Calendar.aspx?EID=18777
+ \n\nListed by Merced County Library
+URL:https://www.countyofmerced.com/Calendar.aspx?EID=18777
+END:VEVENT
+BEGIN:VEVENT
+UID:05f2b7de8442@fun-for-nathaniel
+DTSTAMP:20261109T005114Z
+DTSTART;TZID=America/Los_Angeles:20261121T110000
+DTEND;TZID=America/Los_Angeles:20261121T140000
+SUMMARY:Family Game Day
+LOCATION:Delhi Library
+DESCRIPTION:Details: https://www.countyofmerced.com/Calendar.aspx?EID=18927
+ \n\nListed by Merced County Library
+URL:https://www.countyofmerced.com/Calendar.aspx?EID=18927
+END:VEVENT
+BEGIN:VEVENT
+UID:ab592aa2d82c@fun-for-nathaniel
+DTSTAMP:20261109T005114Z
+DTSTART;TZID=America/Los_Angeles:20261121T120000
+DTEND;TZID=America/Los_Angeles:20261121T130000
+SUMMARY:Lego Play Time
+LOCATION:Livingston Library
+DESCRIPTION:Details: https://www.countyofmerced.com/Calendar.aspx?EID=18041
+ \n\nListed by Merced County Library
+URL:https://www.countyofmerced.com/Calendar.aspx?EID=18041
+END:VEVENT
+BEGIN:VEVENT
+UID:627f9a65d672@fun-for-nathaniel
+DTSTAMP:20261109T005114Z
+DTSTART;TZID=America/Los_Angeles:20261121T130000
+DTEND;TZID=America/Los_Angeles:20261121T140000
+SUMMARY:Family Lego Fun Time
+LOCATION:Gustine Library
+DESCRIPTION:Details: https://www.countyofmerced.com/Calendar.aspx?EID=19012
+ \n\nListed by Merced County Library
+URL:https://www.countyofmerced.com/Calendar.aspx?EID=19012
+END:VEVENT
+BEGIN:VEVENT
+UID:ff5b6077e5fd@fun-for-nathaniel
+DTSTAMP:20261109T005114Z
+DTSTART;TZID=America/Los_Angeles:20261127T103000
+DTEND;TZID=America/Los_Angeles:20261127T110000
+SUMMARY:Story Time at Story
+LOCATION:150 S 2nd Ave\, Oakdale\, CA
+DESCRIPTION:Join us for story time. We invite families and children of all 
+ ages to come enjoy story time as we read a new book or two!\n\nDetails: ht
+ tps://oakdaleevents.com/events/story-time-at-story/\n\nListed by Oakdale E
+ vents
+URL:https://oakdaleevents.com/events/story-time-at-story/
+END:VEVENT
+BEGIN:VEVENT
+UID:3319a3e42040@fun-for-nathaniel
+DTSTAMP:20261109T005114Z
+DTSTART;TZID=America/Los_Angeles:20261205T080000
+DTEND;TZID=America/Los_Angeles:20261205T113000
+SUMMARY:Breakfast with Santa
+LOCATION:211 Bodem Street\, Modesto\, CA
+DESCRIPTION:Saturday\, December 5 at 8:00 am – 11:30 am Modesto Senior Ci
+ tizens Center\, 211 Bodem Street\, Modesto Join us for a delicious breakfa
+ st\, story time with Ms. Claus\, crafts and of course a chance to meet the
+  man of the…\n\nDetails: https://visitmodesto.com/events/breakfast-with-
+ santa-3/\n\nListed by Visit Modesto
+URL:https://visitmodesto.com/events/breakfast-with-santa-3/
+END:VEVENT
+END:VCALENDAR

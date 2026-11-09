@@ -1,0 +1,62 @@
+[
+  {
+    "id": "carnegie",
+    "name": "Carnegie Arts Center",
+    "type": "tribe",
+    "site": "https://carnegieartsturlock.org",
+    "default_city": "Turlock",
+    "enabled": false,
+    "note": "Site's bot check blocks scripts. Don't work around it; add events by hand or ask the site."
+  },
+  {
+    "id": "heyturlock",
+    "name": "HeyTurlock",
+    "type": "tribe",
+    "site": "https://heyturlock.com",
+    "default_city": "Turlock"
+  },
+  {
+    "id": "state-theatre",
+    "name": "State Theatre",
+    "type": "tribe",
+    "site": "https://thestate.org",
+    "default_city": "Modesto"
+  },
+  {
+    "id": "castle-air",
+    "name": "Castle Air Museum",
+    "type": "tribe",
+    "site": "https://castleairmuseum.org",
+    "default_city": "Atwater"
+  },
+  {
+    "id": "atwater",
+    "name": "City of Atwater",
+    "type": "tribe",
+    "site": "https://www.atwater.org",
+    "default_city": "Atwater",
+    "enabled": false,
+    "note": "Site's bot check blocks scripts. Don't work around it; add events by hand or ask the site."
+  },
+  {
+    "id": "visit-modesto",
+    "name": "Visit Modesto",
+    "type": "mec",
+    "feed": "https://visitmodesto.com/mec-category/family/feed/",
+    "default_city": "Modesto"
+  },
+  {
+    "id": "oakdale",
+    "name": "Oakdale Events",
+    "type": "mec",
+    "feed": "https://oakdaleevents.com/events/feed/",
+    "default_city": "Oakdale"
+  },
+  {
+    "id": "merced-library",
+    "name": "Merced County Library",
+    "type": "civicplus",
+    "feed": "https://www.countyofmerced.com/RSSFeed.aspx?ModID=58&CID=Library-24",
+    "default_city": "Merced"
+  }
+]
